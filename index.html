@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bella & Marco | ERP</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#18212f;--muted:#667085;--line:#e5e7eb;--brand:#4f46e5;--brand2:#7c3aed;--ok:#15803d;--warn:#b45309;--bad:#b91c1c;--shadow:0 8px 28px rgba(15,23,42,.07)}*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}.app{display:flex;min-height:100vh}.side{width:250px;background:#111827;color:#fff;padding:18px 12px;position:fixed;inset:0 auto 0 0;overflow:auto}.brand{font-weight:800;font-size:18px;padding:10px 12px 18px;border-bottom:1px solid #263244}.brand small{display:block;color:#9ca3af;font-weight:500;font-size:11px;margin-top:5px}.group{margin-top:18px}.group h4{font-size:10px;color:#94a3b8;text-transform:uppercase;letter-spacing:.1em;padding:0 12px;margin:0 0 5px}.nav button{display:block;width:100%;border:0;background:transparent;color:#cbd5e1;text-align:left;padding:9px 12px;border-radius:8px;cursor:pointer;font-size:13px}.nav button:hover,.nav button.active{background:#273449;color:#fff}.nav button.nav-training{margin-top:14px;padding:14px 12px;font-size:16px;font-weight:800;border:1px solid #7c3aed;background:linear-gradient(135deg,#312e81,#6d28d9);color:#fff}.nav button.nav-training:hover,.nav button.nav-training.active{background:linear-gradient(135deg,#4338ca,#7c3aed);transform:scale(1.01)}.nav button.nav-training::before{content:'🎓';font-size:24px;display:inline-block;vertical-align:middle;margin-right:9px}.main{margin-left:250px;width:calc(100% - 250px);padding:24px 28px}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:22px}.top h1{font-size:26px;margin:0}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:9px 13px;cursor:pointer}.btn.primary{background:var(--brand);color:#fff;border-color:var(--brand)}.btn.danger{color:var(--bad)}.btn.small{padding:6px 9px;font-size:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:18px}.grid{display:grid;gap:16px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}.metric{padding:17px}.metric .label{font-size:12px;color:var(--muted)}.metric .value{font-size:25px;font-weight:800;margin-top:7px}.metric .sub{font-size:11px;color:var(--muted);margin-top:5px}.section{margin-bottom:18px}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}.sectionhead h2{font-size:17px;margin:0}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:10px}table{border-collapse:collapse;width:100%;min-width:760px;background:#fff}th,td{padding:10px 11px;border-bottom:1px solid var(--line);font-size:12px;text-align:left;white-space:nowrap}th{background:#f8fafc;color:#475467;font-weight:700}tr:last-child td{border-bottom:0}.badge{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:700;background:#eef2ff;color:#3730a3}.badge.ok{background:#ecfdf3;color:#166534}.badge.warn{background:#fffbeb;color:#92400e}.badge.bad{background:#fef2f2;color:#991b1b}.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:12px}.search{min-width:250px;flex:1;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff}.empty{text-align:center;color:var(--muted);padding:35px}.modal{position:fixed;inset:0;background:rgba(15,23,42,.52);display:none;align-items:center;justify-content:center;padding:20px;z-index:20}.modal.open{display:flex}.dialog{background:#fff;border-radius:14px;width:min(900px,100%);max-height:90vh;overflow:auto;padding:22px}.dialog h2{margin:0 0 18px;font-size:20px}.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.field label{display:block;font-size:11px;font-weight:700;color:#475467;margin-bottom:5px}.field input,.field select,.field textarea{width:100%;border:1px solid #d0d5dd;border-radius:8px;padding:9px;background:#fff}.field textarea{min-height:80px;resize:vertical}.money-input{display:flex;align-items:center;border:1px solid #d0d5dd;border-radius:8px;background:#fff;overflow:hidden}.money-input span{padding:9px 0 9px 10px;font-weight:700;color:#475467}.money-input input{border:0!important;border-radius:0!important;outline:0;width:100%;padding-left:6px!important}.span2{grid-column:span 2}.modalfoot{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.chart{display:flex;align-items:end;gap:9px;height:190px;padding:10px 4px}.barbox{height:100%;flex:1;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:5px}.bar{width:100%;max-width:38px;background:linear-gradient(180deg,var(--brand2),var(--brand));border-radius:6px 6px 0 0;min-height:4px}.barbox small{font-size:9px;color:var(--muted)}.notice{padding:12px 14px;border-radius:9px;background:#eef2ff;color:#3730a3;font-size:12px;margin-bottom:14px}.dash-hero{background:linear-gradient(135deg,#4338ca,#7c3aed);color:#fff;border-radius:16px;padding:22px;margin-bottom:18px;box-shadow:var(--shadow)}.dash-hero h2{margin:0 0 5px;font-size:22px}.dash-hero p{margin:0;opacity:.9;font-size:12px}.metric{position:relative;overflow:hidden}.metric:after{content:"";position:absolute;width:70px;height:70px;border-radius:50%;right:-25px;top:-25px;background:rgba(79,70,229,.08)}.metric.blue{border-top:4px solid #2563eb}.metric.green{border-top:4px solid #16a34a}.metric.orange{border-top:4px solid #ea580c}.metric.purple{border-top:4px solid #9333ea}.metric.red{border-top:4px solid #dc2626}.dash-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.mini-stat{padding:14px;border:1px solid var(--line);border-radius:10px;background:#fff}.mini-stat strong{display:block;font-size:19px;margin-top:4px}.viewbtn{color:#1d4ed8}.detailgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.detailitem{background:#f8fafc;border:1px solid var(--line);border-radius:9px;padding:10px}.detailitem .k{font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase}.detailitem .v{font-size:13px;margin-top:3px;word-break:break-word}.dash-bars{display:flex;align-items:end;gap:8px;height:190px;padding:18px 6px 8px}.dash-bar{flex:1;min-width:10px;position:relative;height:100%;display:flex;align-items:end;justify-content:center}.dash-bar span{width:75%;max-width:34px;min-height:5px;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,#8b5cf6,#4f46e5)}.dash-bar small{position:absolute;bottom:-17px;font-size:9px;color:var(--muted)}.dash-bar em{position:absolute;top:-2px;font-style:normal;font-size:8px;color:var(--muted);transform:translateY(-100%);white-space:nowrap}.status-row{display:flex;align-items:center;gap:8px;margin:8px 0}.status-row b{margin-left:auto;font-size:12px}.status-dot{width:9px;height:9px;border-radius:50%;background:#6366f1}.status-dot.ok{background:#16a34a}.status-dot.warn{background:#f59e0b}.status-dot.bad{background:#dc2626}.mobile{display:none}@media(max-width:900px){.side{width:210px}.main{margin-left:210px;width:calc(100% - 210px);padding:18px}.g4{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.dash-mini{grid-template-columns:1fr}.detailgrid{grid-template-columns:1fr}.side{display:none}.main{margin-left:0;width:100%}.mobile{display:block}.top{align-items:flex-start;flex-direction:column}.g4,.g3,.g2,.formgrid{grid-template-columns:1fr}.span2{grid-column:span 1}}
+
+.training-head{background:linear-gradient(135deg,#312e81,#7c3aed);color:#fff;border-radius:16px;padding:22px;margin-bottom:16px}.training-head h2{margin:0 0 5px;font-size:22px}.training-head p{margin:0;opacity:.92;font-size:12px}.training-info{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:16px}.training-progress{height:10px;background:#e5e7eb;border-radius:99px;overflow:hidden}.training-progress>div{height:100%;background:linear-gradient(90deg,#22c55e,#16a34a);transition:width .2s}.training-table table{min-width:850px}.training-table .done-row{background:#f0fdf4}.training-status{min-width:130px;padding:7px 9px;border:1px solid #d0d5dd;border-radius:8px;background:#fff}.training-note{font-size:11px;color:var(--muted)}.training-locked{opacity:.62;pointer-events:none}.training-required{border:1px solid #f59e0b;background:#fffbeb;color:#92400e;padding:12px 14px;border-radius:10px;margin-bottom:14px;font-size:12px}.training-required strong{display:block;margin-bottom:4px;color:#78350f}
+@media(max-width:650px){.training-info{grid-template-columns:1fr}}
+@media print{body{background:#fff}.side,.top{display:none!important}.main{margin:0!important;width:100%!important;padding:0!important}.training-print-area{display:block!important}.no-print{display:none!important}.training-head{background:#fff!important;color:#000!important;border:1px solid #222;box-shadow:none}.training-head p{color:#000;opacity:1}.training-progress{display:none}.training-table table{min-width:0;width:100%;font-size:10px}.training-table th,.training-table td{font-size:10px;padding:6px;border:1px solid #222}.training-table .status-select{display:none}.training-table .print-status{display:inline!important}.training-print-title{display:block!important}.training-report-footer{display:block!important;margin-top:14px;font-size:10px}}
+.training-print-title,.training-report-footer{display:none}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side"><div class="brand">BELLA & MARCO<small>ERP • Gestão empresarial</small></div><div id="nav" class="nav"></div></aside>
+<main class="main">
+<div class="top"><div><h1 id="title">Dashboard</h1><div id="subtitle" style="color:#667085;font-size:12px;margin-top:4px">Visão geral da empresa</div></div><div class="actions"><button class="btn" onclick="backup()">Backup</button><button class="btn" onclick="resetDemo()">Restaurar dados</button></div></div>
+<div id="view"></div>
+</main></div>
+<div id="modal" class="modal"><div class="dialog"><h2 id="modalTitle"></h2><div id="form"></div></div></div>
+<script>
+const CFG={empresa:'Bella & Marco Moda MEI',fantasia:'Bella & Marco Moda',cnpj:'11.222.333/0001-81',regime:'MEI',telefone:'(61) 99999-0000',email:'contato@bellaemarco.example.com',uf:'DF',cidade:'Brasília',responsavel:'Mariana Alves da Silva'};
+const clients=[['1','Camila Ferreira Costa','PF','529.982.247-25','(61) 99111-1001','camila.costa@example.com','DF','Brasília','Asa Sul'],['2','Rafael Almeida Santos','PF','111.444.777-35','(61) 99111-1002','rafael.santos@example.com','DF','Brasília','Asa Norte'],['3','Juliana Mendes Oliveira','PF','123.456.789-09','(61) 99111-1003','juliana.oliveira@example.com','DF','Brasília','Taguatinga'],['4','Lucas Martins Rocha','PF','246.813.579-28','(61) 99111-1004','lucas.rocha@example.com','DF','Brasília','Águas Claras'],['5','Patrícia Souza Lima','PF','135.792.468-28','(61) 99111-1005','patricia.lima@example.com','DF','Brasília','Guará'],['6','Bruno Carvalho Dias','PF','314.159.265-90','(61) 99111-1006','bruno.dias@example.com','DF','Brasília','Ceilândia'],['7','Boutique Essencial Ltda.','PJ','11.333.444/0001-22','(61) 3222-6107','compras@boutiqueessencial.example.com','DF','Brasília','SIA'],['8','Studio Moda & Estilo Ltda.','PJ','33.444.555/0001-22','(61) 3222-6108','contato@studiomoda.example.com','DF','Brasília','Lago Sul']];
+const suppliers=[['1','Fashion Sul Distribuidora','55.666.777/0001-81','(47) 3000-7101','SC','Blumenau'],['2','Moda Mix Atacadista','77.888.999/0001-81','(11) 3000-7102','SP','São Paulo'],['3','Têxtil Brasil Central','12.345.678/0001-95','(62) 3000-7103','GO','Goiânia'],['4','Embalapack DF','98.765.432/0001-98','(61) 3000-7104','DF','Brasília']];
+const transportadoras=[['1','Correios','SEDEX','0800-725-0100','Ativa'],['2','Jadlog','Jadlog Parcel','0800-704-5622','Ativa'],['3','DF Entregas Express','Motoboy','(61) 99900-1100','Ativa']];
+const prestadores=[['1','Gráfica Nova Impressão','Impressão e materiais gráficos','(61) 3333-4400','contato@graficanova.example.com','Ativo'],['2','Manutenção Tech Brasília','Manutenção de equipamentos','(61) 3333-5500','suporte@techbrasilia.example.com','Ativo'],['3','Contabilidade Central DF','Serviços contábeis','(61) 3333-6600','contato@contabilidadecentral.example.com','Ativo']];
+const products=[['1','CAM001-M-AZ','Camisa Social Slim','Camisa','Masculino','M','Azul-marinho',55,129.90,5],['2','CAM002-G-BR','Camisa Social Slim Branca','Camisa','Masculino','G','Branca',55,129.90,5],['3','POL001-M-PR','Polo Premium','Polo','Masculino','M','Preta',65,179.90,4],['4','BER001-G-BE','Bermuda Sarja','Bermuda','Masculino','G','Bege',50,149.90,4],['5','CAL001-M-PR','Calça Wide Leg','Calça','Feminino','M','Preta',62,169.90,3],['6','VES001-M-FL','Vestido Midi Floral','Vestido','Feminino','M','Floral',70,189.90,3],['7','BLU001-M-RO','Blusa Canelada','Blusa','Feminino','M','Rosa',38,99.90,4],['8','CON001-M-BE','Conjunto Alfaiataria','Conjunto','Feminino','M','Bege',95,249.90,3],['9','JEA001-G-AZ','Jaqueta Jeans','Jaqueta','Unissex','G','Azul',85,219.90,2],['10','BOL001-U-CA','Bolsa Tiracolo','Acessório','Feminino','Único','Caramelo',45,119.90,3]];
+const variantSizes={'1':'P, M, G','2':'P, M, G','3':'P, M, G','4':'M, G, GG','5':'36, 38, 40, 42','6':'P, M, G','7':'P, M, G','8':'P, M, G','9':'P, M, G','10':'Único'};
+const variantColors={'1':'Azul-marinho, Branca, Preta','2':'Branca, Azul-claro','3':'Preta, Azul-marinho, Branca','4':'Bege, Preta, Verde-oliva','5':'Preta, Bege, Jeans','6':'Floral, Preto, Verde','7':'Rosa, Branca, Preta','8':'Bege, Preto, Cinza','9':'Azul, Preta, Cinza','10':'Caramelo, Preta, Nude'};
+
+const employees=[['1','Mariana Alves da Silva','Proprietária','Administração',2000,'01/09/2025'],['2','João Pedro Martins','Vendedor','Comercial',1621,'01/11/2025'],['3','Beatriz Souza Lima','Assistente de estoque','Estoque',1621,'05/01/2026']];
+const months=['09/2025','10/2025','11/2025','12/2025','01/2026','02/2026','03/2026','04/2026','05/2026','06/2026','07/2026','08/2026'];
+function brl(n){return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',minimumFractionDigits:2,maximumFractionDigits:2}).format(Number(n)||0)}
+function moneyInput(n){return new Intl.NumberFormat('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2,useGrouping:true}).format(r2(n))}
+function moneyToNumber(v){if(v==null||v==='')return 0;v=String(v).trim().replace(/^R\$\s*/,'').replace(/\./g,'').replace(',','.');return Number(v)||0}
+function isoBR(s){if(!s)return '';if(/^\d{2}\/\d{2}\/\d{4}$/.test(s)){let[a,b,c]=s.split('/');return `${c}-${b}-${a}`}return s}
+function dateBR(d){if(!d)return '';let x=d.split('-');return x.length===3?`${x[2]}/${x[1]}/${x[0]}`:d}
+function d(month,day){let [m,y]=month.split('/');return `${day}/${m}/${y}`}
+function r2(n){return Math.round((Number(n)||0)*100)/100}
+function seed(){
+  const sales=[], quotes=[], purchases=[], ar=[], ap=[], crm=[], moves=[], docs=[], fiscal=[], accounting=[], services=[], logistics=[], goals=[], payroll=[], punch=[], production=[];
+  const das=[76.90,76.90,76.90,76.90,81.90,81.90,81.90,81.90,82.90,82.90,82.90,82.90];
+  const serviceTypes=['Consultoria de looks','Montagem de vitrine','Organização de estoque','Personalização de exposição'];
+  const serviceValues=[350.00,420.00,500.00,380.00];
+  const origins=['Instagram','WhatsApp','Indicação','Site'];
+  const stages=['Qualificação','Negociação','Proposta','Ganho'];
+  const saleQty=[2,3,2,4,3,2,4,3,2,3,4,2];
+  const saleProducts=[1,2,3,4,5,6,7,8,9,10,1,2];
+  const secondProducts=[5,6,7,8,9,10,3,4,5,6,7,8];
+  const secondQty=[1,2,2,1,2,1,2,2,1,2,1,2];
+  months.forEach((mo,i)=>{
+    const client1=String((i%8)+1), client2=String(((i+2)%8)+1);
+    const p1=String(saleProducts[i]), p2=String(secondProducts[i]);
+    const q1=saleQty[i], q2=secondQty[i];
+    const total1=r2(products[Number(p1)-1][8]*q1), total2=r2(products[Number(p2)-1][8]*q2);
+    const sale1={id:i*2+1,date:d(mo,8),client:client1,product:p1,qty:q1,payment:'Pix',status:'Pago',seller:'1',total:total1};
+    const sale2={id:i*2+2,date:d(mo,18),client:client2,product:p2,qty:q2,payment:'Cartão de crédito',status:'Faturado',seller:'2',total:total2};
+    sales.push(sale1,sale2);
+
+    const supplier=String((i%4)+1), purchaseProduct=String(((i+3)%10)+1), purchaseQty=10+(i%5)*2, unit=products[Number(purchaseProduct)-1][7];
+    const purchase={id:i+1,date:d(mo,3),supplier,product:purchaseProduct,qty:purchaseQty,unit:r2(unit),order:'OC-'+String(i+1).padStart(4,'0'),status:'Recebido',total:r2(purchaseQty*unit)};
+    purchases.push(purchase);
+
+    const nextMonth=months[(i+1)%12];
+    ar.push({id:i+1,client:client2,order:'PV-'+String(sale2.id).padStart(4,'0'),date:sale2.date,due:d(nextMonth,10),value:r2(total2),status:i<8?'Recebido':'Pendente',received:i<8?d(nextMonth,8):''});
+    const operational=[120,150,100,180,130,160,110,140,125,155,135,145][i];
+    ap.push({id:i+1,supplier,ref:purchase.order,date:purchase.date,due:d(nextMonth,15),category:'Mercadorias',value:r2(purchase.total+operational),status:i<8?'Pago':'Pendente'});
+
+    const potential=r2(total1+total2);
+    crm.push({id:i+1,date:d(mo,6),client:client1,origin:origins[i%4],stage:stages[i%4],next:d(months[(i+1)%12],10),potential,notes:'Acompanhamento comercial'});
+    const qp=String(((i+5)%10)+1), qq=2+(i%4);
+    quotes.push({id:i+1,date:d(mo,5),client:client1,product:qp,qty:qq,seller:'2',status:['Enviado','Negociação','Aprovado','Recusado'][i%4],value:r2(products[Number(qp)-1][8]*qq)});
+
+    moves.push({id:moves.length+1,date:purchase.date,type:'Entrada',product:purchase.product,qty:purchase.qty,ref:purchase.order,responsible:'3'});
+    moves.push({id:moves.length+1,date:sale1.date,type:'Saída',product:sale1.product,qty:sale1.qty,ref:'PV-'+String(sale1.id).padStart(4,'0'),responsible:'2'});
+    moves.push({id:moves.length+1,date:sale2.date,type:'Saída',product:sale2.product,qty:sale2.qty,ref:'PV-'+String(sale2.id).padStart(4,'0'),responsible:'2'});
+
+    services.push({id:i+1,date:d(mo,14),client:String(((i+3)%8)+1),type:serviceTypes[i%4],qty:1,value:r2(serviceValues[i%4]),responsible:i%2?'3':'1',status:'Concluído'});
+    docs.push({id:i+1,date:d(mo,9),type:'Pedido de venda',ref:'PV-'+String(sale1.id).padStart(4,'0'),status:'Ativo'});
+    docs.push({id:i+13,date:d(mo,25),type:'Guia DAS',ref:'DAS-'+mo.replace('/',''),status:'Ativo'});
+
+    fiscal.push({id:i*2+1,date:sale1.date,type:'NF-e',number:'NF-'+String(i*2+1).padStart(4,'0'),client:sale1.client,value:r2(sale1.total),status:'Autorizada'});
+    fiscal.push({id:i*2+2,date:sale2.date,type:'NF-e',number:'NF-'+String(i*2+2).padStart(4,'0'),client:sale2.client,value:r2(sale2.total),status:'Autorizada'});
+    fiscal.push({id:i+25,date:d(mo,14),type:'NFS-e',number:'NFS-'+String(i+1).padStart(4,'0'),client:services[i].client,value:r2(services[i].value),status:'Autorizada'});
+    fiscal.push({id:i+37,date:d(mo,25),type:'DAS MEI',number:'DAS-'+mo.replace('/',''),client:CFG.empresa,value:r2(das[i]),status:'Pago'});
+
+    const revenue=r2(total1+total2+serviceValues[i%4]);
+    const monthlyPayroll=r2(payroll.filter(x=>x.month===mo).reduce((a,x)=>a+x.net,0));
+    const expense=r2(purchase.total+operational+das[i]+monthlyPayroll);
+    accounting.push({id:accounting.length+1,date:d(mo,28),history:'Reconhecimento da receita — Caixa/Clientes',debit:r2(revenue),credit:0,status:'Conferido'});
+    accounting.push({id:accounting.length+1,date:d(mo,28),history:'Reconhecimento da receita — Receita de vendas e serviços',debit:0,credit:r2(revenue),status:'Conferido'});
+    accounting.push({id:accounting.length+1,date:d(mo,28),history:'Reconhecimento das despesas — Despesas operacionais',debit:r2(expense),credit:0,status:'Conferido'});
+    accounting.push({id:accounting.length+1,date:d(mo,28),history:'Reconhecimento das despesas — Fornecedores/obrigações',debit:0,credit:r2(expense),status:'Conferido'});
+
+    const tr=String((i%3)+1);
+    logistics.push({id:i+1,date:d(mo,10),order:'PV-'+String(sale1.id).padStart(4,'0'),client:sale1.client,transport:tr,tracking:'BR'+String(100000000+i),status:i<10?'Entregue':'Em trânsito',address:clients[Number(sale1.client)-1][8]+' - Brasília/DF'});
+    goals.push({id:i+1,month:mo,indicator:'Faturamento mensal',target:r2(revenue*(i%3===0?1.02:i%3===1?0.98:1.05)),actual:r2(revenue),status:i%3===1?'Atingida':'Atenção'});
+    production.push({id:i+1,date:d(mo,12),product:String((i%10)+1),order:'OP-'+String(i+1).padStart(4,'0'),qty:1,activity:'Ajuste e personalização de peça',responsible:i%2?'3':'1',status:'Concluída'});
+    punch.push({id:i*2+1,date:d(mo,15),employee:'2',entry:'08:00',lunch:'12:00',return:'13:00',exit:'17:00',hours:8,status:'Jornada normal'});
+    punch.push({id:i*2+2,date:d(mo,15),employee:'3',entry:'08:00',lunch:'12:00',return:'13:00',exit:'17:00',hours:8,status:'Jornada normal'});
+    payroll.push({id:payroll.length+1,month:mo,employee:'1',base:2000.00,earnings:2000.00,discount:0.00,net:2000.00,paydate:d(mo,28),status:'Paga'});
+    if(i>=2) payroll.push({id:payroll.length+1,month:mo,employee:'2',base:1621.00,earnings:1621.00,discount:0.00,net:1621.00,paydate:d(mo,28),status:'Paga'});
+    if(i>=4) payroll.push({id:payroll.length+1,month:mo,employee:'3',base:1621.00,earnings:1621.00,discount:0.00,net:1621.00,paydate:d(mo,28),status:'Paga'});
+  });
+
+  const stock=products.map(p=>({id:p[0],code:p[1],product:p[2],sizes:variantSizes[p[0]]||p[5],colors:variantColors[p[0]]||p[6],initial:20,in:0,out:0,current:20,cost:r2(p[7]),min:p[9],location:'Arara '+String.fromCharCode(64+Number(p[0])),status:'Disponível'}));
+  purchases.forEach(x=>stock[Number(x.product)-1].in+=Number(x.qty));
+  sales.forEach(x=>stock[Number(x.product)-1].out+=Number(x.qty));
+  stock.forEach(x=>{x.current=x.initial+x.in-x.out;x.status=x.current<=x.min?'Estoque baixo':'Disponível'});
+  const inventory=stock.map((x,i)=>({id:i+1,date:'31/08/2026',product:String(x.id),system:x.current,physical:x.current,difference:0,responsible:'3',status:'Conferido'}));
+
+  const cash=[];
+  sales.filter(x=>x.payment==='Pix').forEach(x=>cash.push({id:cash.length+1,date:x.date,type:'Entrada',description:'Recebimento venda '+('PV-'+String(x.id).padStart(4,'0')),value:r2(x.total),account:'1'}));
+  ar.filter(x=>x.status==='Recebido').forEach(x=>cash.push({id:cash.length+1,date:x.received,type:'Entrada',description:'Recebimento conta '+x.order,value:r2(x.value),account:'1'}));
+  services.forEach(x=>cash.push({id:cash.length+1,date:x.date,type:'Entrada',description:'Recebimento serviço #'+x.id,value:r2(x.value),account:'1'}));
+  ap.filter(x=>x.status==='Pago').forEach(x=>cash.push({id:cash.length+1,date:x.due,type:'Saída',description:'Pagamento '+x.ref,value:r2(x.value),account:'1'}));
+  fiscal.filter(x=>x.type==='DAS MEI').forEach(x=>cash.push({id:cash.length+1,date:x.date,type:'Saída',description:'Pagamento '+x.number,value:r2(x.value),account:'1'}));
+  payroll.forEach(x=>cash.push({id:cash.length+1,date:x.paydate,type:'Saída',description:'Pagamento folha colaborador '+x.employee,value:r2(x.net),account:'1'}));
+
+  const banks=[
+    {id:'1',name:'Nubank',agency:'0001',number:'00012345-6',type:'Conta corrente',initial:70000.00,current:0,status:'Ativa'},
+    {id:'2',name:'Banco Inter',agency:'0001',number:'123456-7',type:'Conta corrente',initial:3000.00,current:3000.00,status:'Ativa'},
+    {id:'3',name:'Mercado Pago',agency:'0001',number:'99887766',type:'Carteira digital',initial:1000.00,current:1000.00,status:'Ativa'}
+  ];
+  const netCash=r2(cash.reduce((a,x)=>a+(x.type==='Entrada'?x.value:-x.value),0));
+  banks[0].current=r2(banks[0].initial+netCash);
+
+  const flow=[];
+  months.forEach((mo,i)=>{
+    const revenue=r2(sales.filter(x=>x.date.includes('/'+mo.split('/')[0]+'/')&&x.date.endsWith(mo.split('/')[1])).reduce((a,x)=>a+x.total,0)+services.filter(x=>x.date.includes('/'+mo.split('/')[0]+'/')&&x.date.endsWith(mo.split('/')[1])).reduce((a,x)=>a+x.value,0));
+    const purchase=purchases[i].total, operational=[120,150,100,180,130,160,110,140,125,155,135,145][i], monthlyPayroll=r2(payroll.filter(x=>x.month===mo).reduce((a,x)=>a+x.net,0));
+    flow.push({id:flow.length+1,date:d(mo,28),type:'Receita',category:'Vendas e serviços',value:r2(revenue)});
+    flow.push({id:flow.length+1,date:d(mo,28),type:'Despesa',category:'Mercadorias + operacional + DAS',value:r2(purchase+operational+das[i]+monthlyPayroll)});
+  });
+
+  return {
+    config:CFG,
+    clientes:clients.map(x=>({id:x[0],name:x[1],type:x[2],doc:x[3],phone:x[4],email:x[5],uf:x[6],city:x[7],district:x[8],status:'Ativo'})),
+    fornecedores:suppliers.map(x=>({id:x[0],name:x[1],doc:x[2],phone:x[3],uf:x[4],city:x[5],status:'Ativo'})),
+    transportadoras:transportadoras.map(x=>({id:x[0],name:x[1],service:x[2],phone:x[3],status:x[4]})),
+    prestadores:prestadores.map(x=>({id:x[0],name:x[1],service:x[2],phone:x[3],email:x[4],status:x[5]})),
+    produtos:products.map(x=>({id:x[0],code:x[1],name:x[2],category:x[3],gender:x[4],sizes:variantSizes[x[0]]||x[5],colors:variantColors[x[0]]||x[6],cost:r2(x[7]),price:r2(x[8]),min:x[9]})),
+    colaboradores:employees.map(x=>({id:x[0],name:x[1],role:x[2],department:x[3],salary:r2(x[4]),admission:x[5],status:'Ativo'})),
+    crm,vendas:sales,orcamentos:quotes,compras:purchases,estoque:stock,movestoque:moves,inventario:inventory,contasreceber:ar,contaspagar:ap,caixa:cash,bancos:banks,fluxo:flow,fiscal,contabil:accounting,documentos:docs,ponto:punch,folha:payroll,producao:production,servicos:services,logistica:logistics,metas:goals
+  };
+}
+const KEY='bella_erp_producao_v11';
+const MONEY_FIELDS=new Set(['cost','price','total','value','unit','base','earnings','discount','net','target','actual','potential','debit','credit','salary','initial','current']);
+function normalizeMoneyBase(data){if(!data||typeof data!=='object')return data;Object.keys(data).forEach(k=>{if(Array.isArray(data[k]))data[k].forEach(r=>{if(r&&typeof r==='object')MONEY_FIELDS.forEach(f=>{if(Object.prototype.hasOwnProperty.call(r,f))r[f]=r2(r[f])})})});return data}
+function moneyText(v){return brl(r2(v))}
+function validateMoneyDisplay(){document.querySelectorAll('[data-money]').forEach(el=>{el.textContent=moneyText(el.dataset.money)})}
+let db; try{db=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){db=null} if(!db){db=seed();normalizeMoneyBase(db);localStorage.setItem(KEY,JSON.stringify(db))}else{db.produtos=(db.produtos||[]).map(p=>({...p,sizes:p.sizes||p.size||variantSizes[p.id]||'',colors:p.colors||p.color||variantColors[p.id]||''}));normalizeMoneyBase(db);localStorage.setItem(KEY,JSON.stringify(db))}
+function save(){normalizeMoneyBase(db);localStorage.setItem(KEY,JSON.stringify(db))}
+function ensureMoneyData(){normalizeMoneyBase(db);(db.caixa||[]).forEach(x=>x.value=r2(x.value));(db.fluxo||[]).forEach(x=>x.value=r2(x.value));(db.fiscal||[]).forEach(x=>x.value=r2(x.value));(db.contabil||[]).forEach(x=>{x.debit=r2(x.debit);x.credit=r2(x.credit)});(db.metas||[]).forEach(x=>{x.target=r2(x.target);x.actual=r2(x.actual)});save()} function resetDemo(){if(confirm('Restaurar todos os dados demonstrativos? Isso apagará alterações feitas neste navegador.')){db=seed();save();go('dashboard')}} function backup(){let a=document.createElement('a');a.href='data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(db,null,2));a.download='backup-bella-marco.json';a.click()}
+const defs={
+clientes:{title:'Clientes',label:'Cliente',fields:[['name','Nome','text'],['type','Tipo','select:PF|PJ'],['doc','CPF/CNPJ','text'],['phone','Telefone','tel'],['email','E-mail','email'],['uf','UF','select:DF|GO|MG|RJ|SP|SC'],['city','Cidade','text'],['district','Bairro/Região','text'],['status','Status','select:Ativo|Inativo']]},
+fornecedores:{title:'Fornecedores',label:'Fornecedor',fields:[['name','Razão social','text'],['doc','CNPJ','text'],['phone','Telefone','tel'],['uf','UF','select:DF|GO|MG|RJ|SP|SC'],['city','Cidade','text'],['status','Status','select:Ativo|Inativo']]},
+transportadoras:{title:'Transportadoras',label:'Transportadora',fields:[['name','Nome','text'],['service','Modalidade','select:Transportadora|Motoboy|Entrega expressa'],['phone','Telefone','tel'],['status','Status','select:Ativa|Inativa']]},
+prestadores:{title:'Prestadores de serviço',label:'Prestador de serviço',fields:[['name','Nome / Empresa','text'],['service','Serviço prestado','text'],['phone','Telefone','tel'],['email','E-mail','email'],['status','Status','select:Ativo|Inativo']]},
+produtos:{title:'Produtos',label:'Produto',fields:[['code','Código','autoCode'],['name','Nome do produto','required'],['category','Categoria','text'],['gender','Público','select:Masculino|Feminino|Unissex'],['sizes','Tamanhos disponíveis (separe por vírgula)','text'],['colors','Cores disponíveis (separe por vírgula)','text'],['cost','Custo','money'],['price','Preço de venda','money'],['min','Estoque mínimo','number']]},
+crm:{title:'CRM / Leads',label:'Lead',fields:[['date','Data','date'],['client','Cliente','client'],['origin','Origem','select:Instagram|WhatsApp|Indicação|Site|Loja'],['stage','Etapa','select:Qualificação|Proposta|Negociação|Ganho|Perdido'],['next','Próximo contato','date'],['potential','Potencial','money'],['notes','Observações','textarea']]},
+vendas:{title:'Vendas / Pedidos',label:'Pedido',fields:[['date','Data','date'],['client','Cliente','client'],['product','Produto','product'],['qty','Quantidade','number'],['payment','Forma de pagamento','select:Pix|Cartão de crédito|Cartão de débito|Dinheiro'],['status','Status','select:Rascunho|Faturado|Pago|Entregue|Cancelado'],['seller','Vendedor','employee'],['total','Total','money']]},
+orcamentos:{title:'Orçamentos',label:'Orçamento',fields:[['date','Data','date'],['client','Cliente','client'],['product','Produto','product'],['qty','Quantidade','number'],['seller','Responsável','employee'],['status','Status','select:Em elaboração|Enviado|Em negociação|Aprovado|Recusado'],['value','Valor do orçamento','moneyAuto']]},
+compras:{title:'Compras',label:'Compra',fields:[['date','Data','date'],['supplier','Fornecedor','supplier'],['product','Produto','product'],['qty','Quantidade','number'],['unit','Custo unitário','money'],['order','Ordem de compra','text'],['status','Status','select:Solicitada|Aprovada|Recebida|Cancelada'],['total','Total','money']]},
+estoque:{title:'Estoque',label:'Item de estoque',fields:[['code','Código','text'],['product','Produto','text'],['sizes','Tamanhos','text'],['colors','Cores','text'],['initial','Estoque inicial','number'],['in','Entradas','number'],['out','Saídas','number'],['current','Estoque atual','number'],['min','Estoque mínimo','number'],['cost','Custo unitário','money'],['location','Local','text'],['status','Status','select:Disponível|Estoque baixo']]},
+movestoque:{title:'Movimentações de estoque',label:'Movimentação',fields:[['date','Data','date'],['type','Tipo','select:Entrada|Saída|Ajuste'],['product','Produto','product'],['qty','Quantidade','number'],['ref','Documento de referência','text'],['responsible','Responsável','employee']]},
+inventario:{title:'Inventário',label:'Inventário',fields:[['date','Data','date'],['product','Produto','product'],['system','Estoque no sistema','number'],['physical','Contagem física','number'],['difference','Diferença','number'],['responsible','Responsável','employee'],['status','Status','select:Conferido|Divergência|Pendente']]},
+contasreceber:{title:'Contas a receber',label:'Conta a receber',fields:[['client','Cliente','client'],['order','Pedido','text'],['date','Emissão','date'],['due','Vencimento','date'],['value','Valor','money'],['status','Status','select:Pendente|Vencendo|Recebido|Atrasado'],['received','Data recebimento','date']]},
+contaspagar:{title:'Contas a pagar',label:'Conta a pagar',fields:[['supplier','Fornecedor','supplier'],['ref','Referência','text'],['date','Emissão','date'],['due','Vencimento','date'],['category','Categoria','text'],['value','Valor','money'],['status','Status','select:Pendente|Vencendo|Pago|Atrasado']]},
+caixa:{title:'Caixa',label:'Movimento de caixa',fields:[['date','Data','date'],['type','Tipo','select:Entrada|Saída'],['description','Descrição','text'],['value','Valor','money'],['account','Conta bancária','bank']]},
+bancos:{title:'Contas bancárias',label:'Conta bancária',fields:[['name','Instituição','text'],['agency','Agência','text'],['number','Número','text'],['type','Tipo','select:Conta corrente|Poupança|Carteira digital'],['initial','Saldo inicial','money'],['current','Saldo atual','money'],['status','Status','select:Ativa|Inativa']]},
+fluxo:{title:'Fluxo financeiro',label:'Lançamento financeiro',fields:[['date','Data','date'],['type','Tipo','select:Receita|Despesa'],['category','Categoria','text'],['value','Valor','money']]},
+fiscal:{title:'Fiscal',label:'Documento fiscal',fields:[['date','Data','date'],['type','Tipo','select:NF-e|NFS-e|DAS MEI'],['number','Número','text'],['client','Cliente / Contribuinte','text'],['value','Valor','money'],['status','Status','select:Autorizada|Pago|Cancelada']]},
+contabil:{title:'Contábil',label:'Lançamento contábil',fields:[['date','Data','date'],['history','Histórico','text'],['debit','Débito','money'],['credit','Crédito','money'],['status','Status','select:Conferido|Pendente']]},
+documentos:{title:'Documentos',label:'Documento',fields:[['date','Data','date'],['type','Tipo','select:Nota fiscal|Pedido de venda|Comprovante de pagamento|Guia DAS|Inventário|Contrato'],['ref','Referência','text'],['status','Status','select:Ativo|Arquivado']]},
+colaboradores:{title:'Colaboradores',label:'Colaborador',fields:[['name','Nome','text'],['role','Cargo','text'],['department','Departamento','text'],['salary','Salário','money'],['admission','Admissão','date'],['status','Status','select:Ativo|Inativo']]},
+ponto:{title:'Controle de ponto',label:'Registro de ponto',fields:[['date','Data','date'],['employee','Colaborador','employee'],['entry','Entrada','text'],['lunch','Saída almoço','text'],['return','Retorno','text'],['exit','Saída','text'],['hours','Horas','number'],['status','Status','select:Jornada normal|Atraso|Falta|Hora extra']]},
+folha:{title:'Folha / Pró-labore',label:'Folha',fields:[['month','Competência','text'],['employee','Colaborador','employee'],['base','Salário base','money'],['earnings','Proventos','money'],['discount','Descontos','money'],['net','Líquido','money'],['paydate','Data pagamento','date'],['status','Status','select:Paga|Pendente']]},
+producao:{title:'Produção',label:'Ordem de produção',fields:[['date','Data','date'],['product','Produto','product'],['order','Ordem de produção','text'],['qty','Quantidade','number'],['activity','Atividade','text'],['responsible','Responsável','employee'],['status','Status','select:Planejada|Em produção|Concluída|Cancelada']]},
+servicos:{title:'Serviços',label:'Serviço',fields:[['date','Data','date'],['client','Cliente','client'],['type','Serviço','select:Consultoria de looks|Montagem de vitrine|Organização de estoque|Personalização de exposição'],['qty','Quantidade','number'],['value','Valor','money'],['responsible','Responsável','employee'],['status','Status','select:Agendado|Em andamento|Concluído|Cancelado']]},
+logistica:{title:'Logística / Entregas',label:'Entrega',fields:[['date','Data','date'],['order','Pedido','text'],['client','Cliente','client'],['transport','Transportadora','transport'],['tracking','Rastreamento','text'],['status','Status','select:Preparando|Em trânsito|Entregue|Devolvida'],['address','Endereço de entrega','text']]},
+metas:{title:'Metas / Indicadores',label:'Meta',fields:[['month','Competência','text'],['indicator','Indicador','text'],['target','Meta','money'],['actual','Realizado','money'],['status','Status','select:Atingida|Atenção|Não atingida']]}
+};
+const menu=[['GERAL',['dashboard','cadastros']],['COMERCIAL',['crm','produtos','vendas','orcamentos']],['ESTOQUE E COMPRAS',['estoque','movestoque','compras','inventario']],['FINANCEIRO',['contasreceber','contaspagar','caixa','bancos','fluxo']],['FISCAL E CONTÁBIL',['fiscal','contabil','documentos']],['PESSOAS',['colaboradores','ponto','folha']],['OPERAÇÃO',['producao','servicos','logistica','metas']],['TREINAMENTO',['treinamento']]];
+const labels={treinamento:'Modo Treinamento',dashboard:'Dashboard',cadastros:'Cadastros',clientes:'Clientes',crm:'CRM / Leads',produtos:'Produtos',vendas:'Vendas / Pedidos',orcamentos:'Orçamentos',estoque:'Estoque',movestoque:'Movimentações',compras:'Compras',inventario:'Inventário',contasreceber:'Contas a receber',contaspagar:'Contas a pagar',caixa:'Caixa',bancos:'Contas bancárias',fluxo:'Fluxo financeiro',fiscal:'Fiscal',contabil:'Contábil',documentos:'Documentos',colaboradores:'Colaboradores',ponto:'Controle de ponto',folha:'Folha / Pró-labore',producao:'Produção',servicos:'Serviços',logistica:'Logística / Entregas',metas:'Metas / Indicadores'};
+function initNav(){document.getElementById('nav').innerHTML=menu.map(g=>`<div class="group"><h4>${g[0]}</h4>${g.slice(1).flat().map(k=>`<button id="nav-${k}" class="${k==='treinamento'?'nav-training':''}" onclick="go('${k}')">${labels[k]}</button>`).join('')}</div>`).join('')}
+function go(k){document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));document.getElementById('nav-'+k)?.classList.add('active');document.getElementById('title').textContent=labels[k]||k;document.getElementById('subtitle').textContent=k==='dashboard'?CFG.empresa:k==='treinamento'?'Atividade prática de aprendizagem em sistema ERP':'Cadastro e controle operacional';k==='dashboard'?dashboard():k==='estoque'?stockView():k==='cadastros'?cadastroView():k==='treinamento'?trainingView():tableView(k)}
+function dashboard(){
+ const vendas=db.vendas||[], serv=db.servicos||[], ar=db.contasreceber||[], ap=db.contaspagar||[], caixa=db.caixa||[], bancos=db.bancos||[], estoque=db.estoque||[], clientes=db.clientes||[], produtos=db.produtos||[];
+ const revenue=r2(vendas.reduce((a,x)=>a+Number(x.total||0),0)+serv.reduce((a,x)=>a+Number(x.value||0),0));
+ const recebidos=r2(ar.filter(x=>x.status==='Recebido').reduce((a,x)=>a+Number(x.value||0),0));
+ const aberto=r2(ar.filter(x=>x.status!=='Recebido').reduce((a,x)=>a+Number(x.value||0),0));
+ const pagar=r2(ap.filter(x=>x.status!=='Pago').reduce((a,x)=>a+Number(x.value||0),0));
+ const entradas=r2(caixa.filter(x=>x.type==='Entrada').reduce((a,x)=>a+Number(x.value||0),0));
+ const saidas=r2(caixa.filter(x=>x.type==='Saída').reduce((a,x)=>a+Number(x.value||0),0));
+ const saldoCaixa=r2(entradas-saidas);
+ const saldoBancos=r2(bancos.reduce((a,x)=>a+Number(x.current||0),0));
+ const estoqueBaixo=estoque.filter(x=>x.status==='Estoque baixo').length;
+ const pedidosEntregues=vendas.filter(x=>x.status==='Entregue').length;
+ const ticket=vendas.length?r2(vendas.reduce((a,x)=>a+Number(x.total||0),0)/vendas.length):0;
+ const by=months.map(m=>r2(vendas.filter(x=>x.date===m||String(x.date||'').includes(m)).reduce((a,x)=>a+Number(x.total||0),0)+serv.filter(x=>x.date===m||String(x.date||'').includes(m)).reduce((a,x)=>a+Number(x.value||0),0)));
+ const max=Math.max(1,...by);
+ const result=r2(revenue-(ap.reduce((a,x)=>a+Number(x.value||0),0)));
+ const collectionRate=revenue?r2((recebidos/revenue)*100):0;
+ document.getElementById('view').innerHTML=`
+ <div class="dash-hero"><h2>Olá! Esta é a visão geral da Bella & Marco Moda.</h2><p>Indicadores atualizados a partir dos lançamentos registrados nos módulos do ERP.</p></div>
+ <div class="grid g4 section">
+  <div class="card metric blue"><div class="label">Faturamento total</div><div class="value">${brl(revenue)}</div><div class="sub">Vendas + serviços</div></div>
+  <div class="card metric green"><div class="label">Recebido</div><div class="value">${brl(recebidos)}</div><div class="sub">${collectionRate.toFixed(2).replace('.',',')}% do faturamento</div></div>
+  <div class="card metric orange"><div class="label">A receber</div><div class="value">${brl(aberto)}</div><div class="sub">Títulos em aberto</div></div>
+  <div class="card metric red"><div class="label">A pagar</div><div class="value">${brl(pagar)}</div><div class="sub">Obrigações em aberto</div></div>
+ </div>
+ <div class="dash-mini section">
+  <div class="mini-stat">Saldo de caixa<strong>${brl(saldoCaixa)}</strong></div>
+  <div class="mini-stat">Saldo das contas<strong>${brl(saldoBancos)}</strong></div>
+  <div class="mini-stat">Resultado estimado<strong>${brl(result)}</strong></div>
+ </div>
+ <div class="grid g3 section">
+  <div class="card metric purple"><div class="label">Clientes cadastrados</div><div class="value">${clientes.length}</div><div class="sub">Ativos na base</div></div>
+  <div class="card metric blue"><div class="label">Pedidos</div><div class="value">${vendas.length}</div><div class="sub">${pedidosEntregues} entregues</div></div>
+  <div class="card metric orange"><div class="label">Produtos em estoque baixo</div><div class="value">${estoqueBaixo}</div><div class="sub">de ${produtos.length} produtos</div></div>
+ </div>
+ <div class="grid g2 section">
+  <div class="card"><div class="sectionhead"><h2>Faturamento por mês</h2><span class="small">Vendas + serviços</span></div><div class="dash-bars">${by.map((v,i)=>`<div class="dash-bar"><em>${brl(v)}</em><span style="height:${Math.max(5,(v/max)*145)}px"></span><small>${months[i].slice(0,2)}/${months[i].slice(3)}</small></div>`).join('')}</div></div>
+  <div class="card"><div class="sectionhead"><h2>Resumo operacional</h2></div>
+   <div class="status-row"><span class="status-dot ok"></span>Recebimentos confirmados <b>${brl(recebidos)}</b></div>
+   <div class="status-row"><span class="status-dot warn"></span>Contas em aberto <b>${brl(aberto)}</b></div>
+   <div class="status-row"><span class="status-dot bad"></span>Obrigações em aberto <b>${brl(pagar)}</b></div>
+   <div class="status-row"><span class="status-dot"></span>Ticket médio dos pedidos <b>${brl(ticket)}</b></div>
+   <div class="status-row"><span class="status-dot ok"></span>Movimentação de caixa — entradas <b>${brl(entradas)}</b></div>
+   <div class="status-row"><span class="status-dot bad"></span>Movimentação de caixa — saídas <b>${brl(saidas)}</b></div>
+  </div>
+ </div>
+`;
+}
+function cadastroView(){
+ const cards=[
+  ['clientes','👤','Clientes','Pessoas e empresas que compram da Bella & Marco.','Cliente'],
+  ['fornecedores','🏭','Fornecedores','Empresas que fornecem mercadorias, materiais e insumos.','Fornecedor'],
+  ['transportadoras','🚚','Transportadoras','Empresas e modalidades utilizadas nas entregas.','Transportadora'],
+  ['prestadores','🧰','Prestadores de serviço','Empresas ou profissionais contratados para serviços externos.','Prestador de serviço']
+ ];
+ document.getElementById('view').innerHTML=`<div class="notice"><b>Cadastros:</b> aqui ficam somente os cadastros-base que não possuem uma área operacional própria. Produtos, colaboradores, contas bancárias e demais registros operacionais permanecem em suas respectivas abas.</div><div class="grid g2">${cards.map(c=>`<div class="card"><div style="font-size:30px">${c[1]}</div><h2 style="margin:8px 0 6px">${c[2]}</h2><p style="font-size:12px;color:var(--muted);min-height:34px">${c[3]}</p><div class="actions"><button class="btn" onclick="go('${c[0]}')">Visualizar cadastros</button><button class="btn primary" onclick="openForm('${c[0]}')">+ Cadastrar ${c[4]}</button></div></div>`).join('')}</div>`;
+}
+function stockView(){document.getElementById('view').innerHTML=`<div class="card"><div class="sectionhead"><h2>Posição de estoque</h2><button class="btn primary" onclick="openForm('movestoque')">+ Nova movimentação</button></div><div class="notice">Fórmula: <b>Estoque inicial + Entradas − Saídas = Estoque atual</b>. Tamanhos e cores vêm do cadastro do produto e ajudam na reposição. A coluna <b>Sugestão de compra</b> indica quanto falta para atingir o estoque mínimo.</div><div class="tablewrap"><table><thead><tr><th>Código</th><th>Produto</th><th>Inicial</th><th>Entradas</th><th>Saídas</th><th>Atual</th><th>Mínimo</th><th>Custo unitário</th><th>Tamanhos</th><th>Cores</th><th>Sugestão de compra</th><th>Local</th><th>Status</th><th>Ações</th></tr></thead><tbody>${db.estoque.map((x,i)=>`<tr><td>${x.code}</td><td>${x.product}</td><td>${x.initial}</td><td>${x.in}</td><td>${x.out}</td><td><b>${x.current}</b></td><td>${x.min}</td><td>${brl(x.cost)}</td><td>${x.sizes||'—'}</td><td>${x.colors||'—'}</td><td><b>${Math.max(0,Number(x.min||0)-Number(x.current||0))}</b></td><td>${x.location}</td><td>${badge(x.status)}</td><td><button class="btn small viewbtn" onclick="viewRecord('estoque',${i})">Visualizar</button></td></tr>`).join('')}</tbody></table></div></div>`}
+const TRAINING_TASKS=[
+ {id:1,activity:'Cadastre 5 clientes fictícios',module:'Clientes',route:'clientes'},
+ {id:2,activity:'Cadastre 3 fornecedores',module:'Fornecedores',route:'fornecedores'},
+ {id:3,activity:'Monte o catálogo',module:'Produtos',route:'produtos'},
+ {id:4,activity:'Faça uma entrada',module:'Movimentações',route:'movestoque'},
+ {id:5,activity:'Registre uma compra',module:'Compras',route:'compras'},
+ {id:6,activity:'Faça uma venda',module:'Vendas/Pedidos',route:'vendas'},
+ {id:7,activity:'Lance uma receita',module:'Fluxo financeiro',route:'fluxo'},
+ {id:8,activity:'Lance uma despesa',module:'Fluxo financeiro',route:'fluxo'},
+ {id:9,activity:'Controle recebimentos',module:'Contas a receber',route:'contasreceber'},
+ {id:10,activity:'Controle pagamentos',module:'Contas a pagar',route:'contaspagar'},
+ {id:11,activity:'Crie um lead',module:'CRM/Leads',route:'crm'},
+ {id:12,activity:'Faça um inventário',module:'Inventário',route:'inventario'},
+ {id:13,activity:'Cadastre colaborador',module:'RH/Colaboradores',route:'colaboradores'},
+ {id:14,activity:'Registre entrega',module:'Logística/Entregas',route:'logistica'},
+ {id:15,activity:'Defina uma meta',module:'Metas/Indicadores',route:'metas'},
+ {id:16,activity:'Analise Dashboard',module:'Dashboard',route:'dashboard'},
+ {id:17,activity:'Classifique documentos',module:'Documentos',route:'documentos'},
+ {id:18,activity:'Registre um lançamento',module:'Contábil',route:'contabil'}
+];
+function trainingState(){let s;try{s=JSON.parse(localStorage.getItem('bella_training')||'null')}catch(e){s=null}if(!s||!Array.isArray(s.tasks)||s.tasks.length!==TRAINING_TASKS.length){s={student:'',emission:new Date().toLocaleDateString('pt-BR'),tasks:TRAINING_TASKS.map(t=>({id:t.id,status:'Pendente'}))};localStorage.setItem('bella_training',JSON.stringify(s))}return s}
+function saveTrainingState(s){localStorage.setItem('bella_training',JSON.stringify(s))}
+function trainingView(){
+ const s=trainingState(), done=s.tasks.filter(x=>x.status==='Realizado').length, pct=Math.round(done/TRAINING_TASKS.length*100), started=String(s.student||'').trim().length>0;
+ document.getElementById('view').innerHTML=`
+ <div class="training-print-area">
+  <div class="training-head"><h2>Bella & Marco Moda — Modo Treinamento</h2><p>Atividade prática de aprendizagem em sistema ERP</p><div class="training-print-title"><strong>Relatório do aluno</strong></div></div>
+  <div class="card training-info">
+   <div class="field"><label>Aluno <span style="color:#b91c1c">*</span></label><input id="trainingStudent" type="text" required placeholder="Digite o nome completo do aluno" value="${String(s.student||'').replaceAll('"','&quot;')}"></div>
+   <div class="field"><label>Data de emissão</label><input id="trainingEmission" type="date" value="${isoBR(s.emission||'')}"></div>
+  </div>
+  ${started?'':'<div class="training-required"><strong>🔒 Identificação obrigatória</strong>Informe o nome do aluno acima para liberar o início das atividades e o acesso aos módulos do treinamento.</div>'}
+  <div class="card section ${started?'':'training-locked'}"><div class="sectionhead"><div><h2>Progresso do treinamento</h2><div class="training-note">Altere cada atividade de <b>Pendente</b> para <b>Realizado</b> quando o aluno concluir a tarefa.</div></div><div><b id="trainingPct">${done}/${TRAINING_TASKS.length} (${pct}%)</b></div></div><div class="training-progress"><div id="trainingBar" style="width:${pct}%"></div></div></div>
+  <div class="card training-table ${started?'':'training-locked'}">
+   <div class="sectionhead no-print"><div><h2>Relatório do aluno</h2><div class="training-note">Use os botões de acesso para abrir o módulo correspondente.</div></div><div class="actions"><button class="btn" onclick="trainingReset()">Restaurar pendentes</button><button class="btn primary" onclick="printTrainingReport()">🖨 Imprimir / Salvar PDF</button></div></div>
+   <div class="training-report-meta"><p><b>Aluno:</b> <span id="printStudent">${s.student||'________________________________'}</span> &nbsp;&nbsp; <b>Data de emissão:</b> <span id="printEmission">${s.emission||'____/____/________'}</span></p><p><b>Progresso final:</b> <span id="printProgress">${done}/${TRAINING_TASKS.length} atividades (${pct}%)</span></p></div>
+   <div class="tablewrap"><table><thead><tr><th>#</th><th>Atividade</th><th>Módulo</th><th>Situação</th><th class="no-print">Acesso</th></tr></thead><tbody id="trainingRows">${TRAINING_TASKS.map((t,i)=>{let st=s.tasks[i]?.status||'Pendente';return `<tr class="${st==='Realizado'?'done-row':''}"><td>${t.id}</td><td>${t.activity}</td><td>${t.module}</td><td><select class="training-status status-select" ${started?'':'disabled'} onchange="setTrainingStatus(${i},this.value)"><option ${st==='Pendente'?'selected':''}>Pendente</option><option ${st==='Realizado'?'selected':''}>Realizado</option></select><span class="print-status" style="display:none">${st==='Realizado'?'● Realizado':'○ Pendente'}</span></td><td class="no-print"><button class="btn small" ${started?'':'disabled'} onclick="go('${t.route}')">Abrir módulo</button></td></tr>`}).join('')}</tbody></table></div>
+   <div class="training-report-footer"><p><b>Bella & Marco Moda — Modo Treinamento</b></p><p>Relatório de acompanhamento de atividade prática de aprendizagem em sistema ERP.</p><p>Assinatura do aluno: ____________________________________ &nbsp;&nbsp; Assinatura do professor: ____________________________________</p></div>
+  </div>
+ </div>`;
+ document.getElementById('trainingStudent').addEventListener('input',e=>{let x=trainingState();x.student=e.target.value;saveTrainingState(x);trainingView();const input=document.getElementById('trainingStudent');input.focus();input.setSelectionRange(input.value.length,input.value.length)});
+ document.getElementById('trainingEmission').addEventListener('change',e=>{let x=trainingState();x.emission=dateBR(e.target.value);saveTrainingState(x);updateTrainingMeta()});
+}
+function updateTrainingMeta(){const s=trainingState(),done=s.tasks.filter(x=>x.status==='Realizado').length,pct=Math.round(done/TRAINING_TASKS.length*100);let st=document.getElementById('printStudent'),em=document.getElementById('printEmission'),pr=document.getElementById('printProgress'),pc=document.getElementById('trainingPct'),bar=document.getElementById('trainingBar');if(st)st.textContent=s.student||'________________________________';if(em)em.textContent=s.emission||'____/____/________';if(pr)pr.textContent=`${done}/${TRAINING_TASKS.length} atividades (${pct}%)`;if(pc)pc.textContent=`${done}/${TRAINING_TASKS.length} (${pct}%)`;if(bar)bar.style.width=pct+'%';}
+function setTrainingStatus(i,status){let s=trainingState();if(!String(s.student||'').trim()){alert('Informe o nome do aluno antes de iniciar a atividade.');trainingView();return}if(!s.tasks[i])return;s.tasks[i].status=status;saveTrainingState(s);trainingView()}
+function trainingReset(){let s=trainingState();if(!String(s.student||'').trim()){alert('Informe o nome do aluno antes de iniciar o treinamento.');trainingView();return}if(confirm('Restaurar todas as atividades para Pendente?')){s.tasks=TRAINING_TASKS.map(t=>({id:t.id,status:'Pendente'}));saveTrainingState(s);trainingView()}}
+function printTrainingReport(){let s=trainingState();if(!String(s.student||'').trim()){alert('Informe o nome do aluno antes de gerar o relatório.');trainingView();document.getElementById('trainingStudent')?.focus();return}updateTrainingMeta();window.print()}
+function badge(s){let c=/Pago|Recebido|Entregue|Concluída|Ativo|Autorizada|Atingida|Disponível|Conferido|Paga/.test(s)?'ok':/Atrasado|Cancelado|Recusado|Não atingida|Divergência/.test(s)?'bad':'warn';return `<span class="badge ${c}">${s}</span>`}
+function nameOf(type,id){let a=type==='client'?db.clientes:type==='supplier'?db.fornecedores:type==='product'?db.produtos:type==='employee'?db.colaboradores:type==='bank'?db.bancos:type==='transport'?db.transportadoras:type==='provider'?db.prestadores:[];let x=a.find(z=>String(z.id)===String(id));return x?(x.name||x.product||x.code):id||''}
+const MONEY_KEYS=new Set(['cost','price','total','value','unit','base','earnings','discount','net','target','actual','potential','debit','credit','salary','initial','current']);
+function isMoneyField(k,f){return MONEY_KEYS.has(k)||f==='money'||f==='moneyAuto'}
+function display(k,f,v){if(['client','supplier','product','employee','bank','transport','provider'].includes(f))return nameOf(f,v);if(isMoneyField(k,f))return brl(v);if(['date','next','due','received','paydate','admission'].includes(f))return v;return v??''}
+function tableView(k){
+ const def=defs[k];
+ if(!def){document.getElementById('view').innerHTML='<div class=\"card\">Módulo não encontrado.</div>';return}
+ const data=db[k]||[];
+ document.getElementById('view').innerHTML=`
+ <div class=\"card\">
+  <div class=\"sectionhead\">
+   <div><h2>${def.title}</h2><div class=\"small\">${data.length} cadastro(s) realizado(s). Consulte, visualize, edite ou exclua cada registro.</div></div>
+   <div class=\"actions\"><button class=\"btn\" onclick=\"go('${k}')\">↻ Atualizar</button><button class=\"btn primary\" onclick=\"openForm('${k}')\">+ Novo ${def.label.toLowerCase()}</button></div>
+  </div>
+  <div class=\"toolbar\"><input class=\"search\" placeholder=\"Pesquisar neste módulo...\" oninput=\"filterTable(this)\"><span class=\"small\" style=\"align-self:center\">💡 Use <b>Visualizar</b> para consultar o cadastro completo.</span></div>
+  <div class=\"tablewrap\"><table><thead><tr><th>ID</th>${def.fields.map(f=>`<th>${f[1]}</th>`).join('')}<th>Ações</th></tr></thead><tbody>
+  ${data.length?data.map((r,i)=>`<tr><td>${r.id??i+1}</td>${def.fields.map(f=>`<td>${f[0]==='status'?badge(r[f[0]]):display(f[0],f[2],r[f[0]])}</td>`).join('')}<td><button class=\"btn small viewbtn\" onclick=\"viewRecord('${k}',${i})\">👁 Visualizar</button> <button class=\"btn small\" onclick=\"openForm('${k}',${i})\">✎ Editar</button> <button class=\"btn small danger\" onclick=\"del('${k}',${i})\">Excluir</button></td></tr>`).join(''):
+  `<tr><td colspan=\"${def.fields.length+2}\" class=\"empty\">Nenhum registro encontrado.</td></tr>`}
+  </tbody></table></div>
+ </div>`
+}
+function viewRecord(k,index){const def=defs[k],r=(db[k]||[])[index];if(!def||!r)return;let html='<div class="detailgrid">';def.fields.forEach(([key,label,type])=>{let raw=r[key];let val=key==='status'?badge(raw):display(k,type,raw);html+=`<div class="detailitem"><div class="k">${label}</div><div class="v">${val||'—'}</div></div>`});html+='</div><div class="modalfoot"><button class="btn" onclick="closeModal()">Fechar</button><button class="btn primary" onclick="closeModal();openForm(\''+k+'\','+index+')">Editar cadastro</button></div>';document.getElementById('modalTitle').textContent='Visualizar — '+def.label+' #'+(r.id??index+1);document.getElementById('form').innerHTML=html;document.getElementById('modal').classList.add('open')}
+function filterTable(input){let q=input.value.toLowerCase();let table=input.closest('.card').querySelector('tbody');table.querySelectorAll('tr').forEach(tr=>tr.style.display=tr.innerText.toLowerCase().includes(q)?'':'none')}
+function opts(type,val){let arr=type==='client'?db.clientes:type==='supplier'?db.fornecedores:type==='product'?db.produtos:type==='employee'?db.colaboradores:type==='bank'?db.bancos:[];return `<select name="__rel"><option value="">Selecione...</option>${arr.map(x=>`<option value="${x.id}" ${String(x.id)===String(val)?'selected':''}>${x.id} — ${x.name||x.product||x.code}</option>`).join('')}</select>`}
+function openForm(k,index=null){
+ const def=defs[k], obj=index==null?{}:db[k][index];
+ document.getElementById('modalTitle').textContent=index==null?'Novo '+def.label:'Editar '+def.label;
+ let html='<div class="formgrid">';
+ def.fields.forEach(([key,label,type])=>{
+   const v=obj[key]??'';
+   html+='<div class="field'+(type==='textarea'?' span2':'')+'"><label>'+label+'</label>';
+   if(type==='autoCode'){ html+='<input name="'+key+'" type="text" value="'+String(v||'Será gerado automaticamente').replaceAll('\"','&quot;')+'" readonly style="background:#f8fafc;color:#667085">'; }
+   else if(type==='required'){ html+='<input name="'+key+'" type="text" value="'+String(v).replaceAll('\"','&quot;')+'" required>'; }
+   else if(type==='moneyAuto'){ html+='<div class="money-input"><span>R$</span><input data-money-input name="'+key+'" type="text" value="'+String(moneyInput(v)).replaceAll('\"','&quot;')+'" readonly style="background:#f8fafc;font-weight:700"></div>'; }
+   else if(type.startsWith('select:')){
+     const options=type.slice(7).split('|'); html+='<select name="'+key+'"><option value="">Selecione...</option>';
+     options.forEach(x=>{html+='<option value="'+x+'" '+(String(v)===x?'selected':'')+'>'+x+'</option>';}); html+='</select>';
+   } else if(['client','supplier','product','employee','bank','transport','provider'].includes(type)){
+     const arr=type==='client'?db.clientes:type==='supplier'?db.fornecedores:type==='product'?db.produtos:type==='employee'?db.colaboradores:type==='bank'?db.bancos:type==='transport'?db.transportadoras:db.prestadores;
+     html+='<select name="'+key+'"><option value="">Selecione...</option>';
+     arr.forEach(x=>{const text=x.id+' — '+(x.name||x.product||x.code);html+='<option value="'+x.id+'" '+(String(v)===String(x.id)?'selected':'')+'>'+text+'</option>';}); html+='</select>';
+   } else if(type==='textarea') html+='<textarea name="'+key+'">'+String(v)+'</textarea>';
+   else if(type==='money'){ const val=moneyInput(v); html+='<div class="money-input"><span>R$</span><input data-money-input name="'+key+'" type="text" inputmode="decimal" value="'+String(val).replaceAll('\"','&quot;')+'"></div>'; }
+   else if(type==='number'){ html+='<input name="'+key+'" type="number" step="1" min="0" value="'+String(v).replaceAll('\"','&quot;')+'">'; }
+   else { const val=type==='date'?isoBR(v):v; html+='<input name="'+key+'" type="'+type+'" value="'+String(val).replaceAll('\"','&quot;')+'">'; }
+   html+='</div>';
+ });
+ html+='</div><div class="modalfoot"><button class="btn" onclick="closeModal()">Cancelar</button><button class="btn primary" onclick="saveForm(\''+k+'\','+(index==null?-1:index)+')">Salvar</button></div>';
+ document.getElementById('form').innerHTML=html; document.getElementById('modal').classList.add('open'); document.querySelectorAll('#form [data-money-input]').forEach(el=>{el.addEventListener('blur',()=>{el.value=moneyInput(moneyToNumber(el.value))});});
+}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+function nextProductCode(name,excludeId){
+ const clean=String(name||'Produto').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^A-Za-z0-9]/g,'').toUpperCase();
+ const prefix=(clean.slice(0,3)||'PRO').padEnd(3,'X');
+ const nums=(db.produtos||[]).filter(x=>String(x.id)!==String(excludeId||'')).map(x=>{const m=String(x.code||'').match(new RegExp('^'+prefix+'(\\d+)$'));return m?Number(m[1]):0});
+ const next=(nums.length?Math.max(...nums):0)+1;
+ return prefix+String(next).padStart(3,'0');
+}
+function budgetTotal(productId,qty){const p=(db.produtos||[]).find(x=>String(x.id)===String(productId));return r2((Number(qty)||0)*(Number(p?.price)||0))}
+function bindProductCodePreview(k,index){
+ if(k!=='produtos'||index!==null)return;
+ const name=document.querySelector('#form [name="name"]'),code=document.querySelector('#form [name="code"]');
+ if(!name||!code)return;
+ const update=()=>{code.value=name.value.trim()?nextProductCode(name.value):'Será gerado automaticamente';};
+ name.addEventListener('input',update);update();
+}
+function bindFormCalculations(k){
+ if(k!=='orcamentos')return;
+ const product=document.querySelector('#form [name="product"]'), qty=document.querySelector('#form [name="qty"]'), value=document.querySelector('#form [name="value"]');
+ if(!product||!qty||!value)return;
+ const update=()=>{value.value=moneyInput(budgetTotal(product.value,qty.value));};
+ product.addEventListener('change',update);qty.addEventListener('input',update);update();
+}
+function openForm(k,index=null){
+ const def=defs[k], obj=index==null?{}:db[k][index];
+ document.getElementById('modalTitle').textContent=index==null?'Novo '+def.label:'Editar '+def.label;
+ let html='<div class="formgrid">';
+ def.fields.forEach(([key,label,type])=>{
+   const v=obj[key]??'';
+   html+='<div class="field'+(type==='textarea'?' span2':'')+'"><label>'+label+(type==='required'?' <span style="color:#b91c1c">*</span>':'')+'</label>';
+   if(type==='autoCode'){ html+='<input name="'+key+'" type="text" value="'+String(v||'Será gerado automaticamente').replaceAll('"','&quot;')+'" readonly style="background:#f8fafc;color:#667085">'; }
+   else if(type==='required'){ html+='<input name="'+key+'" type="text" value="'+String(v).replaceAll('"','&quot;')+'" required>'; }
+   else if(type==='moneyAuto'){ html+='<div class="money-input"><span>R$</span><input data-money-input name="'+key+'" type="text" value="'+String(moneyInput(v)).replaceAll('"','&quot;')+'" readonly style="background:#f8fafc;font-weight:700"></div>'; }
+   else if(type.startsWith('select:')){
+     const options=type.slice(7).split('|'); html+='<select name="'+key+'"><option value="">Selecione...</option>';
+     options.forEach(x=>{html+='<option value="'+x+'" '+(String(v)===x?'selected':'')+'>'+x+'</option>';}); html+='</select>';
+   } else if(['client','supplier','product','employee','bank','transport','provider'].includes(type)){
+     const arr=type==='client'?db.clientes:type==='supplier'?db.fornecedores:type==='product'?db.produtos:type==='employee'?db.colaboradores:type==='bank'?db.bancos:type==='transport'?db.transportadoras:db.prestadores;
+     html+='<select name="'+key+'"><option value="">Selecione...</option>';
+     arr.forEach(x=>{const text=x.id+' — '+(x.name||x.product||x.code);html+='<option value="'+x.id+'" '+(String(v)===String(x.id)?'selected':'')+'>'+text+'</option>';}); html+='</select>';
+   } else if(type==='textarea') html+='<textarea name="'+key+'">'+String(v)+'</textarea>';
+   else if(type==='money'){ const val=moneyInput(v); html+='<div class="money-input"><span>R$</span><input data-money-input name="'+key+'" type="text" inputmode="decimal" value="'+String(val).replaceAll('"','&quot;')+'"></div>'; }
+   else if(type==='number'){ html+='<input name="'+key+'" type="number" step="1" min="0" value="'+String(v).replaceAll('"','&quot;')+'">'; }
+   else { const val=type==='date'?isoBR(v):v; html+='<input name="'+key+'" type="'+type+'" value="'+String(val).replaceAll('"','&quot;')+'">'; }
+   html+='</div>';
+ });
+ html+='</div><div class="modalfoot"><button class="btn" onclick="closeModal()">Cancelar</button><button class="btn primary" onclick="saveForm(\''+k+'\','+(index==null?-1:index)+')">Salvar</button></div>';
+ document.getElementById('form').innerHTML=html; document.getElementById('modal').classList.add('open');
+ document.querySelectorAll('#form [data-money-input]:not([readonly])').forEach(el=>{el.addEventListener('blur',()=>{el.value=moneyInput(moneyToNumber(el.value))});});
+ bindFormCalculations(k);
+ bindProductCodePreview(k,index);
+}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+function saveForm(k,index){
+ let obj={};
+ defs[k].fields.forEach(([key,label,type])=>{
+   let el=document.querySelector('#form [name="'+key+'"]');let v=el?.value??'';
+   if(type==='money'||type==='moneyAuto')v=r2(moneyToNumber(v));
+   else if(type==='number')v=Number(v||0);
+   if(type==='date')v=dateBR(v);
+   obj[key]=v;
+ });
+ if(k==='produtos'){
+   obj.name=String(obj.name||'').trim();
+   if(!obj.name){alert('Informe o nome do produto. Este campo é obrigatório.');return;}
+   if(index<0)obj.code=nextProductCode(obj.name);else obj.code=db.produtos[index].code||nextProductCode(obj.name,db.produtos[index].id);
+   obj.cost=r2(obj.cost);obj.price=r2(obj.price);
+   obj.sizes=String(obj.sizes||'').split(',').map(x=>x.trim()).filter(Boolean).join(', ');
+   obj.colors=String(obj.colors||'').split(',').map(x=>x.trim()).filter(Boolean).join(', ');
+ }
+ if(k==='orcamentos')obj.value=budgetTotal(obj.product,obj.qty);
+ if(index<0){obj.id=(db[k]?.length?Math.max(...db[k].map(x=>Number(x.id)||0))+1:1);db[k].push(obj)}else db[k][index]={...db[k][index],...obj};
+ reconcile(k,obj);save();closeModal();go(k)
+}
+function reconcile(k,o){
+ if(k==='vendas'){o.total=r2(Number(o.qty||0)*(db.produtos.find(x=>String(x.id)===String(o.product))?.price||0));let ex=db.vendas.find(x=>x.id===o.id);if(!ex) db.estoque.find(x=>String(x.id)===String(o.product))&&(db.estoque.find(x=>String(x.id)===String(o.product)).out+=Number(o.qty||0))}
+ if(k==='compras'){o.total=r2(Number(o.qty||0)*Number(o.unit||0));let s=db.estoque.find(x=>String(x.id)===String(o.product));if(s&&!db.compras.some(x=>x.id===o.id))s.in+=Number(o.qty||0)}
+ if(k==='orcamentos')o.value=budgetTotal(o.product,o.qty);
+ if(k==='folha')o.net=r2(Number(o.earnings||0)-Number(o.discount||0));
+ if(k==='inventario')o.difference=Number(o.physical||0)-Number(o.system||0);
+}
+function del(k,i){let item=db[k][i];if(!confirm('Tem certeza que quer excluir este item?\n\nA exclusão é permanente e pode afetar os indicadores, saldos ou relacionamentos deste módulo.\n\nDeseja continuar?'))return;db[k].splice(i,1);save();go(k)}
+ensureMoneyData();
+window.addEventListener('error',e=>{document.getElementById('view').innerHTML='<div class="card"><h2>O sistema encontrou um erro</h2><p>'+String(e.message||e.error||'Erro inesperado')+'</p><button class="btn primary" onclick="localStorage.removeItem(KEY);location.reload()">Restaurar sistema</button></div>'}); initNav(); go('dashboard');
+</script></body></html>
